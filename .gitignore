@@ -1,0 +1,9 @@
+.tmp/
+node_modules/
+out/
+*.vsix
+
+# deploy: secrets (FTP transport) and per-run logs
+.env
+.env.*
+.log/

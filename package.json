@@ -1,0 +1,68 @@
+{
+  "name": "tmux-tab-restore",
+  "displayName": "Tmux Tab Restore",
+  "description": "Save and restore VS Code terminal tabs attached to tmux sessions over Remote-SSH.",
+  "version": "0.1.5",
+  "publisher": "local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidTimar1/VSCode-Tmux-Restore"
+  },
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tmuxTabRestore.save",
+        "title": "Tmux Restore: Save tabs",
+        "icon": "$(save-as)"
+      },
+      {
+        "command": "tmuxTabRestore.restore",
+        "title": "Tmux Restore: Restore tabs",
+        "icon": "$(history)"
+      },
+      {
+        "command": "tmuxTabRestore.showLog",
+        "title": "Tmux Restore: Show detection log"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "tmuxTabRestore.save",
+          "group": "navigation@1"
+        },
+        {
+          "command": "tmuxTabRestore.restore",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "npx --no-install vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "1.93.0",
+    "@vscode/vsce": "4.1.1",
+    "typescript": "^5.4.0"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
+  }
+}
